@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 100%;
+    position: relative;
 }
 
 .input {
@@ -38,6 +38,10 @@
     font-size: 1.3rem;
     color: var(--error-color);
     margin-top: 0.5rem;
+}
+
+.wrapperTop {
+    width: 100%;
 }
 
 .colapsed {

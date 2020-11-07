@@ -3,7 +3,7 @@ import styles from '../styles/Input.module.css';
 
 const Input = ({ label, id, type, value, onChange, onBlur, error, searched }) => {
     return (
-        <div className={styles.wrapper}>
+        <div className={`${styles.wrapper} ${searched ? styles.wrapperTop : ''}`}>
             {!searched && (
                 <label className={styles.label} htmlFor={id}>
                     {label}

@@ -25,6 +25,8 @@
     margin: 0 0 0 -9.5rem !important;
     border-radius: 0 0.5rem 0.5rem 0;
     cursor: pointer;
+    position: relative;
+    z-index: 2;
 }
 
 .top {

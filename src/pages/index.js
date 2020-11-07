@@ -29,7 +29,10 @@ const Home = () => {
         <div className={styles.home}>
             <Header title={!searched && 'iSearch'} />
             <Welcome style={searched ? { opacity: 0, pointerEvents: 'none' } : {}} />
-            <form ref={formRef} className={`${styles.form} ${styles.top}`} onSubmit={handleSubmit}>
+            <form
+                ref={formRef}
+                className={`${styles.form} ${searched ? styles.top : ''}`}
+                onSubmit={handleSubmit}>
                 <Input
                     id="search"
                     label="Pesquisar"
