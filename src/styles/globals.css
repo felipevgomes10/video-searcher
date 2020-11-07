@@ -1,0 +1,68 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+:root {
+    --type-color-primary: #000000;
+    --type-color-secondary: #ffffff;
+    --bg-color: #ffffff;
+    --theme-color-primary: #7f22fd;
+    --theme-color-secondary: #03dac5;
+    --error-color: #b00020;
+}
+
+body {
+    font-size: 1.6rem;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    min-height: calc(100vh + 5px);
+    color: var(--type-color-primary);
+}
+
+h1,
+h2 {
+    font-weight: 300;
+}
+
+h3,
+h4,
+h5 {
+    font-weight: 400;
+}
+
+h6 {
+    font-weight: 500;
+}
+
+img {
+    max-width: 100%;
+}
+
+a,
+a:link,
+a:visited {
+    text-decoration: none;
+}
+
+.anime {
+    animation: slideUp 1s forwards;
+}
+
+.animeDelay {
+    animation: slideUp 1s 0.7s forwards;
+}
+
+@keyframes slideUp {
+    to {
+        transform: initial;
+        opacity: 1;
+    }
+}

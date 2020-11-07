@@ -1,0 +1,15 @@
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 9rem;
+    background: var(--theme-color-primary);
+    padding: 3rem;
+    box-shadow: 3px 0 7px rgba(0, 0, 0, 0.7);
+}
+
+.title {
+    color: var(--type-color-secondary);
+    letter-spacing: 1px;
+    font-size: 2.5rem;
+}

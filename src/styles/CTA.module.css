@@ -1,0 +1,12 @@
+.cta {
+    background: var(--theme-color-secondary);
+    border: none;
+    outline: none;
+    color: var(--type-color-secondary);
+    height: 4rem;
+    width: 13rem;
+    font-size: 2rem;
+    border-radius: 7px;
+    box-shadow: 0.5px 0.4px 3px rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+}

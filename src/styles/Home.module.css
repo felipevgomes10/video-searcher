@@ -1,0 +1,32 @@
+.home {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2rem;
+    transition: 0.5s;
+}
+
+.form button {
+    margin-top: 1rem;
+}
+
+.btn {
+    background: #333;
+    border: none;
+    outline: none;
+    height: 4.19rem;
+    width: 5em;
+    margin: 0 0 0 -9.5rem !important;
+    border-radius: 0 0.5rem 0.5rem 0;
+    cursor: pointer;
+}
+
+.top {
+    flex-direction: row;
+}
