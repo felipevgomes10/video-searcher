@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 100%;
+    position: relative;
 }
 
 .input {
@@ -40,6 +40,10 @@
     margin-top: 0.5rem;
 }
 
+.wrapperTop {
+    width: 100%;
+}
+
 .colapsed {
     background: var(--bg-color);
     border: none;
@@ -47,6 +51,22 @@
     border-radius: 0.5rem 0 0 0.5rem;
 }
 
-.input:focus .btn {
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+.inputBtn {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    background: #333;
+    border: none;
+    outline: none;
+    height: 4.19rem;
+    width: 5em;
+    margin: 0 0 0 -4.5rem !important;
+    border-radius: 0 0.5rem 0.5rem 0;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
 }
