@@ -16,19 +16,6 @@
     margin-top: 1rem;
 }
 
-.btn {
-    background: #333;
-    border: none;
-    outline: none;
-    height: 4.19rem;
-    width: 5em;
-    margin: 0 0 0 -9.5rem !important;
-    border-radius: 0 0.5rem 0.5rem 0;
-    cursor: pointer;
-    position: relative;
-    z-index: 2;
-}
-
 .top {
     flex-direction: row;
 }

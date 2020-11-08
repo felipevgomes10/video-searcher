@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Button = ({ className }) => {
     return (
         <button className={className}>
-            <Image src="/search.svg" height={30} width={30} />
+            <Image src="/search.svg" height={20} width={20} />
         </button>
     );
 };

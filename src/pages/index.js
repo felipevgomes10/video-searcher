@@ -1,19 +1,16 @@
 import Welcome from '../components/Welcome';
 import styles from '../styles/Home.module.css';
-import Header from '../components/Header';
 import Input from '../components/Input';
 import CTA from '../components/CTA';
 import useForm from '../Hooks/useForm';
-import { useRef, useState } from 'react';
-import Button from '../components/Button';
+import { useRef } from 'react';
 
-const Home = () => {
+const Home = ({ searched, setSearched }) => {
     const { value, error, onChange, onBlur, validate } = useForm();
-    const [searched, setSearched] = useState(false);
     const formRef = useRef();
 
     const changeInput = () => {
-        formRef.current.style.transform = 'translateY(-297px)';
+        formRef.current.style.transform = 'translateY(-386px)';
     };
 
     const handleSubmit = (e) => {
@@ -27,12 +24,8 @@ const Home = () => {
 
     return (
         <div className={styles.home}>
-            <Header title={!searched && 'iSearch'} />
-            <Welcome style={searched ? { opacity: 0, pointerEvents: 'none' } : {}} />
-            <form
-                ref={formRef}
-                className={`${styles.form} ${searched ? styles.top : ''}`}
-                onSubmit={handleSubmit}>
+            <Welcome />
+            <form ref={formRef} className={`${styles.form}`} onSubmit={handleSubmit}>
                 <Input
                     id="search"
                     label="Pesquisar"
@@ -43,7 +36,7 @@ const Home = () => {
                     error={error}
                     searched={searched}
                 />
-                {searched ? <Button className={styles.btn} /> : <CTA>Buscar</CTA>}
+                {!searched && <CTA>Buscar</CTA>}
             </form>
         </div>
     );
