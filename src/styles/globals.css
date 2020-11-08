@@ -34,10 +34,7 @@ h2 {
 
 h3,
 h4,
-h5 {
-    font-weight: 400;
-}
-
+h5,
 h6 {
     font-weight: 500;
 }
@@ -52,17 +49,6 @@ a:visited {
     text-decoration: none;
 }
 
-.anime {
-    animation: slideUp 1s forwards;
-}
-
-.animeDelay {
-    animation: slideUp 1s 0.7s forwards;
-}
-
-@keyframes slideUp {
-    to {
-        transform: initial;
-        opacity: 1;
-    }
+li {
+    list-style: none;
 }
