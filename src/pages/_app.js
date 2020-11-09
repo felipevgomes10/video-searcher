@@ -5,11 +5,18 @@ import { useState } from 'react';
 
 function MyApp({ Component, pageProps }) {
     const [searched, setSearched] = useState(false);
+    const [results, setResults] = useState([]);
 
     return (
         <>
             <Header title={!searched && 'iSearch'} />
-            <Component {...pageProps} searched={searched} setSearched={setSearched} />
+            <Component
+                {...pageProps}
+                searched={searched}
+                setSearched={setSearched}
+                results={results}
+                setResults={setResults}
+            />
         </>
     );
 }

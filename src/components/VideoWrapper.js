@@ -1,4 +1,5 @@
 import styles from '../styles/VideoWrapper.module.css';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
 
 const VideoWrapper = ({ thumb, title, descrip, link }) => {
@@ -15,3 +16,9 @@ const VideoWrapper = ({ thumb, title, descrip, link }) => {
 };
 
 export default VideoWrapper;
+
+VideoWrapper.propTypes = {
+    thumb: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    descrip: PropTypes.string.isRequired
+};
