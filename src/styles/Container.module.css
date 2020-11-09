@@ -1,0 +1,10 @@
+.container {
+    background: var(--bg-color);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+    border-radius: 0.4rem;
+    min-height: 50vh;
+    width: 93%;
+    margin: 0 auto;
+    transform: translateY(-53px);
+    position: relative;
+}
