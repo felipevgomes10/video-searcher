@@ -1,0 +1,30 @@
+.btn {
+    margin: 4rem 1rem 0;
+    width: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.btn:hover,
+.btn:focus {
+    animation: move 0.3s forwards;
+    outline: none;
+}
+
+.btn svg > * {
+    fill: var(--type-color-secondary);
+}
+
+@keyframes move {
+    from {
+        transform: translateX(3px);
+    }
+    to {
+        transform: translateX(-3px);
+    }
+}

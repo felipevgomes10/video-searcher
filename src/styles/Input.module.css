@@ -17,7 +17,7 @@
 
 .input:focus {
     outline: none;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 0 1px #333;
     font-family: 'Roboto' sans-serif;
 }
 
@@ -69,4 +69,14 @@
     cursor: pointer;
     position: relative;
     z-index: 2;
+}
+
+@media (min-width: 48em) {
+    .input {
+        font-size: 1.6rem;
+    }
+
+    .inputBtn {
+        width: 50%;
+    }
 }
