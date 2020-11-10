@@ -1,6 +1,7 @@
 import styles from '../styles/Header.module.css';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
+import BackBtn from './BackBtn';
 
 const Header = ({ term }) => {
     const router = useRouter();
@@ -9,6 +10,7 @@ const Header = ({ term }) => {
     return (
         <>
             <header className={`${styles.header} ${path ? 'height' : ''}`}>
+                {path && <BackBtn />}
                 <h3 className={styles.title}>{path ? `Você buscou por: ${term}` : 'iSearch'}</h3>
             </header>
             <style jsx>{`
@@ -31,5 +33,6 @@ const Header = ({ term }) => {
 export default Header;
 
 Header.propTypes = {
-    title: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
+    title: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+    term: PropTypes.string.isRequired
 };

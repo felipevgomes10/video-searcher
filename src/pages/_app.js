@@ -7,6 +7,7 @@ function MyApp({ Component, pageProps }) {
     const [searched, setSearched] = useState(false);
     const [results, setResults] = useState([]);
     const [term, setTerm] = useState('');
+    const [nextPage, setNextPage] = useState('');
 
     return (
         <>
@@ -19,6 +20,8 @@ function MyApp({ Component, pageProps }) {
                 setResults={setResults}
                 term={term}
                 setTerm={setTerm}
+                nextPage={nextPage}
+                setNextPage={setNextPage}
             />
         </>
     );

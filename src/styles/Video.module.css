@@ -25,3 +25,15 @@
     font-size: 1.75rem;
     word-break: break-all;
 }
+
+@media (min-width: 48em) {
+    .video {
+        height: 48rem;
+    }
+}
+
+@media (min-width: 90em) {
+    .video {
+        height: 64rem;
+    }
+}

@@ -2,6 +2,7 @@ import like from '../../public/like.png';
 import dislike from '../../public/dislike.png';
 import view from '../../public/view.png';
 import styles from '../styles/Statistics.module.css';
+import PropTypes from 'prop-types';
 
 const Statistics = ({ likeStats, dislikeStats, viewsStats }) => {
     return (
@@ -23,3 +24,9 @@ const Statistics = ({ likeStats, dislikeStats, viewsStats }) => {
 };
 
 export default Statistics;
+
+Statistics.propTypes = {
+    likeStats: PropTypes.string,
+    dislikeStats: PropTypes.string,
+    viewsStats: PropTypes.string
+};

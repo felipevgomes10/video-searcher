@@ -23,7 +23,10 @@ module.exports = {
         'plugin:jsx-a11y/recommended',
         'plugin:prettier/recommended'
     ],
+    plugins: ['react-hooks'],
     rules: {
+        'react-hooks/rules-of-hooks': 'error',
+        'react-hooks/exhaustive-deps': 'warn',
         'prettier/prettier': ['error', { endOfLine: 'auto' }, { usePrettierrc: true }],
         'react/react-in-jsx-scope': 'off',
         'jsx-a11y/anchor-is-valid': [
