@@ -1,0 +1,18 @@
+.statistics {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.iconWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconWrapper img {
+    margin-right: 1rem;
+    width: 2.5rem;
+}

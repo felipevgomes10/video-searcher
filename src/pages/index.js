@@ -11,7 +11,7 @@ import VideoWrapper from '../components/VideoWrapper';
 import { NEXT_PAGE, SEARCH_VIDEOS } from '../api';
 import useDebounce from '../Hooks/useDebounce';
 
-const Home = ({ searched, setSearched, results, setResults }) => {
+const Home = ({ searched, setSearched, results, setResults, setTerm }) => {
     const { value, error, onChange, onBlur, validate } = useForm();
     const formRef = useRef();
     const [nextPage, setNextPage] = useState('');
@@ -22,28 +22,37 @@ const Home = ({ searched, setSearched, results, setResults }) => {
 
     useDebounce(
         () => {
-            const pagination = NEXT_PAGE(nextPage, value);
+            if (results.length !== 0) {
+                const pagination = NEXT_PAGE(nextPage, value);
 
-            const handleScroll = () => {
-                const windowHeight = document.documentElement.scrollHeight;
-                const scroll = window.pageYOffset;
-                const condition = scroll > windowHeight * 0.5;
-                if (condition) {
-                    const fetchNextPage = async () => {
-                        const page = await fetcher(pagination);
-                        setNextPage(page.nextPageToken);
-                        const items = [page].map((item) => item.items);
-                        const snippets = items[0].map(({ snippet }) => snippet);
-                        setResults((results) => [...results, ...snippets]);
-                    };
-                    fetchNextPage();
-                }
-            };
+                const handleScroll = () => {
+                    const windowHeight = document.body.scrollHeight - window.innerHeight;
+                    const scroll = window.pageYOffset;
+                    const condition = scroll === windowHeight;
+                    if (condition && nextPage) {
+                        const fetchNextPage = async () => {
+                            const page = await fetcher(pagination);
+                            setNextPage(page.nextPageToken);
+                            const items = [page].map((item) => item.items);
+                            const snippets = items[0].map(({ id, snippet }) => {
+                                return { id, snippet };
+                            });
+                            setResults((results) => [...results, ...snippets]);
+                        };
+                        fetchNextPage();
+                    }
+                };
 
-            window.addEventListener('scroll', handleScroll);
-            window.addEventListener('wheel', handleScroll);
+                window.addEventListener('scroll', handleScroll);
+                window.addEventListener('wheel', handleScroll);
+
+                return () => {
+                    window.removeEventListener('scroll', handleScroll);
+                    window.removeEventListener('wheel', handleScroll);
+                };
+            }
         },
-        [nextPage, value],
+        [nextPage, value, results],
         150
     );
 
@@ -58,8 +67,11 @@ const Home = ({ searched, setSearched, results, setResults }) => {
             changeInput();
             const json = await fetcher(url);
             setNextPage(json.nextPageToken);
-            const data = json.items.map(({ snippet }) => snippet);
+            const data = json.items.map(({ id, snippet }) => {
+                return { id, snippet };
+            });
             setResults(data);
+            setTerm(value);
         }
     };
 
@@ -94,12 +106,13 @@ const Home = ({ searched, setSearched, results, setResults }) => {
                             <VideoWrapper
                                 key={index}
                                 thumb={
-                                    result.thumbnails.high.url ||
-                                    result.thumbnails.medium.url ||
-                                    result.thumbnails.default.url
+                                    result.snippet.thumbnails.high.url ||
+                                    result.snippet.thumbnails.medium.url ||
+                                    result.snippet.thumbnails.default.url
                                 }
-                                title={result.title}
-                                descrip={result.description}
+                                title={result.snippet.title}
+                                descrip={result.snippet.description}
+                                id={result.id.videoId}
                             />
                         );
                     })}
@@ -120,5 +133,6 @@ Home.propTypes = {
     searched: PropTypes.bool,
     setSearched: PropTypes.func,
     results: PropTypes.array,
-    setResults: PropTypes.func
+    setResults: PropTypes.func,
+    setTerm: PropTypes.func
 };
