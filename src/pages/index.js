@@ -104,23 +104,25 @@ const Home = ({ searched, setSearched, results, setResults, setTerm, nextPage, s
                         />
                         {!searched && <CTA>Buscar</CTA>}
                     </form>
-                    {searched &&
-                        results.length > 0 &&
-                        results.map((result, index) => {
-                            return (
-                                <VideoWrapper
-                                    key={index}
-                                    thumb={
-                                        result.snippet.thumbnails.high.url ||
-                                        result.snippet.thumbnails.medium.url ||
-                                        result.snippet.thumbnails.default.url
-                                    }
-                                    title={result.snippet.title}
-                                    descrip={result.snippet.description}
-                                    id={result.id.videoId}
-                                />
-                            );
-                        })}
+                    <ul className={styles.list}>
+                        {searched &&
+                            results.length > 0 &&
+                            results.map((result, index) => {
+                                return (
+                                    <VideoWrapper
+                                        key={index}
+                                        thumb={
+                                            result.snippet.thumbnails.high.url ||
+                                            result.snippet.thumbnails.medium.url ||
+                                            result.snippet.thumbnails.default.url
+                                        }
+                                        title={result.snippet.title}
+                                        descrip={result.snippet.description}
+                                        id={result.id.videoId}
+                                    />
+                                );
+                            })}
+                    </ul>
                 </Container>
                 <style jsx>{`
                     .formGrid {

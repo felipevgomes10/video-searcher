@@ -8,5 +8,16 @@
     font-size: 2rem;
     border-radius: 7px;
     box-shadow: 0.5px 0.4px 3px rgba(0, 0, 0, 0.7);
+    transition: 0.3s;
     cursor: pointer;
+}
+
+.cta:hover,
+.cta:focus {
+    transform: translateY(-2px);
+    border: 1px solid var(--type-color-primary);
+}
+
+.cta:active {
+    transform: initial;
 }

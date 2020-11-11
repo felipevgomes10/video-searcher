@@ -12,12 +12,12 @@
     border-radius: 0.5rem;
     padding: 1rem;
     background: none;
+    outline: none;
     transition: 0.3s;
 }
 
 .input:focus {
     outline: none;
-    box-shadow: 0 0 0 1px #333;
     font-family: 'Roboto' sans-serif;
 }
 

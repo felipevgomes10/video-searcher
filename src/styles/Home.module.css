@@ -46,9 +46,9 @@
     flex-direction: row;
 }
 
-@media (min-width: 48em) {
-    .h3,
-    .form {
-        grid-column: 1/-1;
-    }
+.list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 3rem;
+    margin: 0 3rem 3rem;
 }
