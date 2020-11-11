@@ -8,10 +8,3 @@
     transform: translateY(-53px);
     position: relative;
 }
-
-@media (min-width: 48em) {
-    .container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-    }
-}
