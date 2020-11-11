@@ -6,7 +6,7 @@ const VideoHome = () => {
 
     useEffect(() => {
         router.push('/');
-    }, []);
+    }, [router]);
 
     return null;
 };

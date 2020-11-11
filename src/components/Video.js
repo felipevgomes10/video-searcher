@@ -10,7 +10,7 @@ const Video = ({ title, like, dislike, descrip, views }) => {
         <div className={styles.videoContainer}>
             <iframe
                 className={styles.video}
-                src={`http://www.youtube.com/embed/${query.id}`}
+                src={`https://www.youtube.com/embed/${query.id}`}
                 controls="2"
                 title={title}
                 type="text/html"
