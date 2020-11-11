@@ -24,7 +24,7 @@ const Home = ({ searched, setSearched, results, setResults, setTerm, nextPage, s
             const pagination = NEXT_PAGE(nextPage, value);
 
             const handleScroll = () => {
-                const windowHeight = document.body.scrollHeight - window.innerHeight;
+                const windowHeight = document.body.offsetHeight - window.innerHeight;
                 const scroll = window.pageYOffset;
                 const condition = scroll === windowHeight;
                 if (condition && nextPage) {
