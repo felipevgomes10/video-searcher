@@ -42,10 +42,12 @@ const Home = ({ searched, setSearched, results, setResults, setTerm, nextPage, s
             };
             window.addEventListener('scroll', handleScroll);
             window.addEventListener('wheel', handleScroll);
+            window.addEventListener('touchstart', handleScroll);
 
             return () => {
                 window.removeEventListener('scroll', handleScroll);
                 window.removeEventListener('wheel', handleScroll);
+                window.removeEventListener('touchstart', handleScroll);
             };
         }
     }, [nextPage, results.length, setResults, value, setNextPage]);
