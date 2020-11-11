@@ -1,4 +1,4 @@
-const KEY = 'AIzaSyCok5DV8meULnGo7navFvtypm1nfBuep8E';
+const KEY = 'AIzaSyBKz6CU7FoO48ynltSNAXwtwXqn8zp0h84';
 
 export function SEARCH_VIDEOS(value) {
     const url = `https://www.googleapis.com/youtube/v3/search?part=id,snippet&q=${value}&key=${KEY}`;

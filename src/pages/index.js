@@ -20,14 +20,16 @@ const Home = ({ searched, setSearched, results, setResults, setTerm, nextPage, s
     const fetcher = (req) => fetch(req).then((r) => r.json());
 
     useEffect(() => {
+        let wait = false;
         if (results.length !== 0) {
             const pagination = NEXT_PAGE(nextPage, value);
 
             const handleScroll = () => {
                 const windowHeight = document.body.offsetHeight - window.innerHeight;
-                const scroll = window.pageYOffset;
-                const condition = scroll === windowHeight;
-                if (condition && nextPage) {
+                const scroll = window.scrollY;
+                const condition = scroll > windowHeight * 0.7;
+                if (condition && nextPage && !wait) {
+                    wait = true;
                     const fetchNextPage = async () => {
                         const page = await fetcher(pagination);
                         setNextPage(page.nextPageToken);
@@ -36,6 +38,9 @@ const Home = ({ searched, setSearched, results, setResults, setTerm, nextPage, s
                             return { id, snippet };
                         });
                         setResults((results) => [...results, ...snippets]);
+                        setTimeout(() => {
+                            wait = false;
+                        }, 3000);
                     };
                     fetchNextPage();
                 }
